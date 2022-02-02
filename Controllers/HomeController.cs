@@ -18,7 +18,7 @@ namespace E_RaporWebApplication.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Dashboard()
         {
             return View();
         }
