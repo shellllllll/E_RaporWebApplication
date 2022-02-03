@@ -13,6 +13,7 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -->
+@model IEnumerable<DbStudentData>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,21 +58,18 @@
                             <p>Beranda</p>
                         </a>
                     </li>
-                    <br />
                     <li>
                         <a asp-controller="Teacher" asp-action="Index">
                             <i class="tim-icons icon-single-02"></i>
                             <p>Data Guru</p>
                         </a>
                     </li>
-                    <br />
                     <li class="active ">
                         <a asp-controller="Student" asp-action="Index">
                             <i class="tim-icons icon-puzzle-10"></i>
                             <p>Data Siswa</p>
                         </a>
                     </li>
-                    <br />
                     <li>
                         <a asp-controller="Value" asp-action="Index">
                             <i class="tim-icons icon-atom"></i>
@@ -150,119 +148,63 @@
                                     <table class="table tablesorter " id="">
                                         <thead class=" text-primary">
                                             <tr>
+                                                @*<th>
+                                                    @Html.DisplayNameFor(model => model.Nomor)
+                                                </th>*@
                                                 <th>
-                                                    Name
+                                                    @Html.DisplayNameFor(model => model.Nama)
                                                 </th>
                                                 <th>
-                                                    Country
+                                                    @Html.DisplayNameFor(model => model.NIS)
                                                 </th>
                                                 <th>
-                                                    City
+                                                    @Html.DisplayNameFor(model => model.NISN)
                                                 </th>
-                                                <th class="text-center">
-                                                    Salary
+                                                @*<th>
+                                                    @Html.DisplayNameFor(model => model.Tempat_Lahir)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.Tanggal_Lahir)
+                                                </th>*@
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.Jenis_Kelamin)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.Alamat)
                                                 </th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>
-                                                    Dakota Rice
-                                                </td>
-                                                <td>
-                                                    Niger
-                                                </td>
-                                                <td>
-                                                    Oud-Turnhout
-                                                </td>
-                                                <td class="text-center">
-                                                    $36,738
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Minerva Hooper
-                                                </td>
-                                                <td>
-                                                    Curaçao
-                                                </td>
-                                                <td>
-                                                    Sinaai-Waas
-                                                </td>
-                                                <td class="text-center">
-                                                    $23,789
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Sage Rodriguez
-                                                </td>
-                                                <td>
-                                                    Netherlands
-                                                </td>
-                                                <td>
-                                                    Baileux
-                                                </td>
-                                                <td class="text-center">
-                                                    $56,142
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Philip Chaney
-                                                </td>
-                                                <td>
-                                                    Korea, South
-                                                </td>
-                                                <td>
-                                                    Overland Park
-                                                </td>
-                                                <td class="text-center">
-                                                    $38,735
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Doris Greene
-                                                </td>
-                                                <td>
-                                                    Malawi
-                                                </td>
-                                                <td>
-                                                    Feldkirchen in Kärnten
-                                                </td>
-                                                <td class="text-center">
-                                                    $63,542
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Mason Porter
-                                                </td>
-                                                <td>
-                                                    Chile
-                                                </td>
-                                                <td>
-                                                    Gloucester
-                                                </td>
-                                                <td class="text-center">
-                                                    $78,615
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Jon Porter
-                                                </td>
-                                                <td>
-                                                    Portugal
-                                                </td>
-                                                <td>
-                                                    Gloucester
-                                                </td>
-                                                <td class="text-center">
-                                                    $98,615
-                                                </td>
-                                            </tr>
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    @*<td>
+                                                        @Html.DisplayFor(modelItem => item.Nomor)
+                                                    </td>*@
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Nama)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.NIS)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.NISN)
+                                                    </td>
+                                                    @*<td>
+                                                        @Html.DisplayFor(modelItem => item.Tempat_Lahir)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Tanggal_Lahir)
+                                                    </td>*@
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Jenis_Kelamin)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Alamat)
+                                                    </td>
+
+                                                </tr>
+                                            }
                                         </tbody>
                                     </table>
                                 </div>

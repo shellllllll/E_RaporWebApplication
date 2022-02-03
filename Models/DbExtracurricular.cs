@@ -7,24 +7,17 @@ using System.Threading.Tasks;
 
 namespace E_RaporWebApplication.Models
 {
-    public class Achievements
+    public class DbExtracurricular
     {
+        [Key]
         public string Nomor { get; set; }
 
-        [Required]
-        [DisplayName("NIS")]
         public string NIS { get; set; }
 
-        [Required]
-        [DisplayName("Nama Siswa")]
         public string Nama { get; set; }
 
-        [Required]
-        [DisplayName("Jenis Prestasi")]
-        public string Jenis_Prestasi { get; set; }
+        public string Ekstrakurikuler { get; set; }
 
-        [Required]
-        [DisplayName("Deskripsi")]
-        public string Deskripsi { get; set; }
+        public string Grade { get; set; }
     }
 }

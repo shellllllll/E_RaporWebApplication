@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_RaporWebApplication.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220202035246_tb_prestasi")]
-    partial class tb_prestasi
+    [Migration("20220203111258_tb_guru")]
+    partial class tb_guru
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -18,16 +18,18 @@ namespace E_RaporWebApplication.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 64)
                 .HasAnnotation("ProductVersion", "5.0.13");
 
-            modelBuilder.Entity("E_RaporWebApplication.Models.Achievements", b =>
+            modelBuilder.Entity("E_RaporWebApplication.Models.DbAchievements", b =>
                 {
-                    b.Property<int>("Nomor")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("Nomor")
+                        .HasColumnType("varchar(767)");
 
                     b.Property<string>("Deskripsi")
                         .HasColumnType("text");
 
                     b.Property<string>("Jenis_Prestasi")
+                        .HasColumnType("text");
+
+                    b.Property<string>("NIS")
                         .HasColumnType("text");
 
                     b.Property<string>("Nama")
@@ -38,13 +40,15 @@ namespace E_RaporWebApplication.Migrations
                     b.ToTable("Tb_Prestasi");
                 });
 
-            modelBuilder.Entity("E_RaporWebApplication.Models.AttitudeCompetence", b =>
+            modelBuilder.Entity("E_RaporWebApplication.Models.DbAttitudeCompetence", b =>
                 {
-                    b.Property<int>("Nomor")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("Nomor")
+                        .HasColumnType("varchar(767)");
 
                     b.Property<string>("Deskripsi_Sikap")
+                        .HasColumnType("text");
+
+                    b.Property<string>("NIS")
                         .HasColumnType("text");
 
                     b.Property<string>("Nama")
@@ -52,19 +56,21 @@ namespace E_RaporWebApplication.Migrations
 
                     b.HasKey("Nomor");
 
-                    b.ToTable("Tb_Sikap");
+                    b.ToTable("DbAttitudeCompetence");
                 });
 
-            modelBuilder.Entity("E_RaporWebApplication.Models.Extracurricular", b =>
+            modelBuilder.Entity("E_RaporWebApplication.Models.DbExtracurricular", b =>
                 {
-                    b.Property<int>("Nomor")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("Nomor")
+                        .HasColumnType("varchar(767)");
 
                     b.Property<string>("Ekstrakurikuler")
                         .HasColumnType("text");
 
                     b.Property<string>("Grade")
+                        .HasColumnType("text");
+
+                    b.Property<string>("NIS")
                         .HasColumnType("text");
 
                     b.Property<string>("Nama")
@@ -75,42 +81,15 @@ namespace E_RaporWebApplication.Migrations
                     b.ToTable("Tb_Ekstrakurikuler");
                 });
 
-            modelBuilder.Entity("E_RaporWebApplication.Models.StudentAttendance", b =>
+            modelBuilder.Entity("E_RaporWebApplication.Models.DbStudentData", b =>
                 {
-                    b.Property<int>("Nomor")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Izin")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Nama")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Sakit")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Tanpa_Keterangan")
-                        .HasColumnType("text");
-
-                    b.HasKey("Nomor");
-
-                    b.ToTable("Tb_Kehadiran");
-                });
-
-            modelBuilder.Entity("E_RaporWebApplication.Models.StudentData", b =>
-                {
-                    b.Property<int>("Nomor")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("NIS")
+                        .HasColumnType("varchar(767)");
 
                     b.Property<string>("Alamat")
                         .HasColumnType("text");
 
                     b.Property<string>("Jenis_Kelamin")
-                        .HasColumnType("text");
-
-                    b.Property<string>("NIS")
                         .HasColumnType("text");
 
                     b.Property<string>("NISN")
@@ -119,22 +98,15 @@ namespace E_RaporWebApplication.Migrations
                     b.Property<string>("Nama")
                         .HasColumnType("text");
 
-                    b.Property<string>("Tanggal_Lahir")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Tempat_Lahir")
-                        .HasColumnType("text");
-
-                    b.HasKey("Nomor");
+                    b.HasKey("NIS");
 
                     b.ToTable("Tb_Siswa");
                 });
 
-            modelBuilder.Entity("E_RaporWebApplication.Models.Subjects", b =>
+            modelBuilder.Entity("E_RaporWebApplication.Models.DbSubjects", b =>
                 {
-                    b.Property<int>("Nomor")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("Nomor")
+                        .HasColumnType("varchar(767)");
 
                     b.Property<string>("Bahasa_Indonesia")
                         .HasColumnType("text");
@@ -143,9 +115,6 @@ namespace E_RaporWebApplication.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("IPS")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Informatika")
                         .HasColumnType("text");
 
                     b.Property<string>("Matematika")
@@ -166,19 +135,15 @@ namespace E_RaporWebApplication.Migrations
                     b.Property<string>("Pendidikan_Agama")
                         .HasColumnType("text");
 
-                    b.Property<string>("Seni")
-                        .HasColumnType("text");
-
                     b.HasKey("Nomor");
 
                     b.ToTable("Tb_Mata_Pelajaran");
                 });
 
-            modelBuilder.Entity("E_RaporWebApplication.Models.TeacherData", b =>
+            modelBuilder.Entity("E_RaporWebApplication.Models.DbTeacherData", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("Nomor")
+                        .HasColumnType("varchar(767)");
 
                     b.Property<string>("Mata_Pelajaran")
                         .HasColumnType("text");
@@ -189,7 +154,7 @@ namespace E_RaporWebApplication.Migrations
                     b.Property<string>("Nama")
                         .HasColumnType("text");
 
-                    b.HasKey("ID");
+                    b.HasKey("Nomor");
 
                     b.ToTable("Tb_Guru");
                 });
