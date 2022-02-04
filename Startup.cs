@@ -65,7 +65,7 @@ namespace E_RaporWebApplication
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Tampil}/{id?}");
+                    pattern: "{controller=Admin}/{action=LogIn}/{id?}");
             });
         }
     }

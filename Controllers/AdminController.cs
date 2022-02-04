@@ -37,31 +37,18 @@ namespace E_RaporWebApplication.Controllers
 
             if (cariAdmin != null)
             {
-                var cekpassword = _context.Tb_Admin.Where(bebas =>  //proses pencarian
+                var cekpassword = _context.Tb_Admin.Where(bebas =>  
                     bebas.Nama_Pengguna == namaInputan.Nama_Pengguna && 
                     bebas.Kata_Sandi == namaInputan.Kata_Sandi
                 ).FirstOrDefault();
 
                 if (cekpassword != null)
                 {
-                    //proses tampungan data 
                     var daftar = new List<Claim>
                     {
-                        new Claim("NamaPengguna",cariAdmin.Nama_Pengguna)
+                        new Claim("Nama_Pengguna",cariAdmin.Nama_Pengguna)
                     };
 
-                    //proses daftar auth
-                    //await HttpContext.SignInAsync(
-                    //     new ClaimsPrincipal(
-                    //         new ClaimsIdentity(daftar, "Cookie", "Username", "Role")
-                    //     )
-                    //);
-
-                    //if (cariAdmin.Roles.Id == "1")//admin
-                    //{
-                    //    return RedirectToAction(controllerName: "Home", actionName: "Index");
-                    //}
-                    //user
                     return RedirectToAction(controllerName: "Home", actionName: "Tampil");
                 }
 

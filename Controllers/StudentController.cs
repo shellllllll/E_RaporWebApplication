@@ -19,19 +19,18 @@ namespace E_RaporWebApplication.Controllers
         public IActionResult TampilSiswa()
         {
 
-            var dataSISWA = _context.Tb_Siswa.ToList();//sama saja dengan select * from tb_siswa
+            var dataSISWA = _context.Tb_Siswa.ToList();
             return View(dataSISWA);
 
         }
 
-        public IActionResult Create()//UNTUK MENAMPILKAN HALAMAN YANG AKAN DIISI(kolom inputan)
+        public IActionResult Create()
         {
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create(StudentData datanya)//mnerima halaman yg akan diisi(inputan/proses)
+        public async Task<IActionResult> Create(StudentData datanya)
         {
-            //proses masukan ke database
             if (ModelState.IsValid)
             {
                 var get = new DbStudentData
@@ -43,8 +42,8 @@ namespace E_RaporWebApplication.Controllers
                     Alamat = datanya.Alamat
                 };
 
-                _context.Add(get);//mengganti dari insert into
-                await _context.SaveChangesAsync();// menyimpan perubahan
+                _context.Add(get);
+                await _context.SaveChangesAsync();
 
                 return RedirectToAction("TampilSiswa");
             }

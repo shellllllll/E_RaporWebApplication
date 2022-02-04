@@ -18,19 +18,18 @@ namespace E_RaporWebApplication.Controllers
         public IActionResult TampilTeacher()
         {
 
-            var dataGuru= _context.Tb_Guru.ToList();//sama saja dengan select * from tb_siswa
+            var dataGuru= _context.Tb_Guru.ToList();
             return View(dataGuru);
 
         }
 
-        public IActionResult Create()//UNTUK MENAMPILKAN HALAMAN YANG AKAN DIISI(kolom inputan)
+        public IActionResult Create()
         {
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create(TeacherData datanya)//mnerima halaman yg akan diisi(inputan/proses)
+        public async Task<IActionResult> Create(TeacherData datanya)
         {
-            //proses masukan ke database
             if (ModelState.IsValid)
             {
                 var get = new DbTeacherData
@@ -40,8 +39,8 @@ namespace E_RaporWebApplication.Controllers
                     Mata_Pelajaran=datanya.Mata_Pelajaran
                 };
 
-                _context.Add(get);//mengganti dari insert into
-                await _context.SaveChangesAsync();// menyimpan perubahan
+                _context.Add(get);
+                await _context.SaveChangesAsync();
 
                 return RedirectToAction("TampilTeacher");
             }

@@ -22,40 +22,75 @@ namespace E_RaporWebApplication.Controllers
         public IActionResult IndexAchievement()
         {
 
-            var dataPrestasi = _context.Tb_Prestasi.ToList();//sama saja dengan select * from tb_siswa
+            var dataPrestasi = _context.Tb_Prestasi.ToList();
             return View(dataPrestasi);
 
         }
         public IActionResult IndexAttendance()
         {
 
-            var dataKehadiran = _context.Tb_Kehadiran.ToList();//sama saja dengan select * from tb_siswa
+            var dataKehadiran = _context.Tb_Kehadiran.ToList();
             return View(dataKehadiran);
 
         }
         public IActionResult IndexAttitude()
         {
 
-            var dataSikap = _context.Tb_Sikap.ToList();//sama saja dengan select * from tb_siswa
+            var dataSikap = _context.Tb_Sikap.ToList();
             return View(dataSikap);
 
         }
         public IActionResult IndexExtracurricular()
         {
 
-            var dataEkstrakurikuler = _context.Tb_Ekstrakurikuler.ToList();//sama saja dengan select * from tb_siswa
+            var dataEkstrakurikuler = _context.Tb_Ekstrakurikuler.ToList();
             return View(dataEkstrakurikuler);
 
         }
         public IActionResult IndexSubject()
         {
 
-            var dataMapel = _context.Tb_Mata_Pelajaran.ToList();//sama saja dengan select * from tb_siswa
+            var dataMapel = _context.Tb_Mata_Pelajaran.ToList();
             return View(dataMapel);
 
         }
+
+
+
+        public IActionResult CreateAchievements()
+        {
+            return View();
+        }
+        public IActionResult CreateAttendance()
+        {
+            return View();
+        }
+        public IActionResult CreateAttitude()
+        {
+            return View();
+        }
+        public IActionResult CreateExtracurricular()
+        {
+            return View();
+        }
+        public IActionResult CreateSubject()
+        {
+            return View();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
         [HttpPost]
-        public async Task<IActionResult> CreateAchievements(Achievements datanya)//UNTUK MENAMPILKAN HALAMAN YANG AKAN DIISI(kolom inputan)
+        public async Task<IActionResult> CreateAchievements(DbAchievements datanya)
         {
             if (ModelState.IsValid)
             {
@@ -68,7 +103,7 @@ namespace E_RaporWebApplication.Controllers
             return View(datanya);
         }
         [HttpPost]
-        public async Task<IActionResult> CreateAttendance(StudentAttendance datanya)//UNTUK MENAMPILKAN HALAMAN YANG AKAN DIISI(kolom inputan)
+        public async Task<IActionResult> CreateAttendance(DbStudentAttendance datanya)
         {
 
             if (ModelState.IsValid)
@@ -82,7 +117,7 @@ namespace E_RaporWebApplication.Controllers
             return View(datanya);
         }
         [HttpPost]
-        public async Task<IActionResult> CreateAttitude(AttitudeCompetence datanya)//UNTUK MENAMPILKAN HALAMAN YANG AKAN DIISI(kolom inputan)
+        public async Task<IActionResult> CreateAttitude(DbAttitudeCompetence datanya)
         {
 
             if (ModelState.IsValid)
@@ -98,7 +133,7 @@ namespace E_RaporWebApplication.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> CreateExtracurricular(Extracurricular datanya)//UNTUK MENAMPILKAN HALAMAN YANG AKAN DIISI(kolom inputan)
+        public async Task<IActionResult> CreateExtracurricular(DbExtracurricular datanya)
         {
 
             if (ModelState.IsValid)
@@ -112,19 +147,15 @@ namespace E_RaporWebApplication.Controllers
             return View(datanya);
         }
         [HttpPost]
-        public async Task<IActionResult> CreateSubject(Subjects datanya)//mnerima halaman yg akan diisi(inputan/proses)
+        public async Task<IActionResult> CreateSubject(DbSubjects datanya)
         {
-            //proses masukan ke database
+
             if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
-                {
-                    _context.Add(datanya);
-                    await _context.SaveChangesAsync();
+                _context.Add(datanya);
+                await _context.SaveChangesAsync();
 
-                    return RedirectToAction("IndexSubject");
-                }
-
+                return RedirectToAction("IndexSubject");
             }
 
             return View(datanya);
