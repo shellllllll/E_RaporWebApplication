@@ -55,7 +55,7 @@ namespace E_RaporWebApplication.Controllers
 
         }
         [HttpPost]
-        public async Task<IActionResult> CreateAchievements(DbAchievements datanya)//UNTUK MENAMPILKAN HALAMAN YANG AKAN DIISI(kolom inputan)
+        public async Task<IActionResult> CreateAchievements(Achievements datanya)//UNTUK MENAMPILKAN HALAMAN YANG AKAN DIISI(kolom inputan)
         {
             if (ModelState.IsValid)
             {
@@ -68,7 +68,7 @@ namespace E_RaporWebApplication.Controllers
             return View(datanya);
         }
         [HttpPost]
-        public async Task<IActionResult> CreateAttendance(DbStudentAttendance datanya)//UNTUK MENAMPILKAN HALAMAN YANG AKAN DIISI(kolom inputan)
+        public async Task<IActionResult> CreateAttendance(StudentAttendance datanya)//UNTUK MENAMPILKAN HALAMAN YANG AKAN DIISI(kolom inputan)
         {
 
             if (ModelState.IsValid)
@@ -82,7 +82,7 @@ namespace E_RaporWebApplication.Controllers
             return View(datanya);
         }
         [HttpPost]
-        public async Task<IActionResult> CreateAttitude(DbAttitudeCompetence datanya)//UNTUK MENAMPILKAN HALAMAN YANG AKAN DIISI(kolom inputan)
+        public async Task<IActionResult> CreateAttitude(AttitudeCompetence datanya)//UNTUK MENAMPILKAN HALAMAN YANG AKAN DIISI(kolom inputan)
         {
 
             if (ModelState.IsValid)
@@ -98,7 +98,7 @@ namespace E_RaporWebApplication.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> CreateExtracurricular(DbExtracurricular datanya)//UNTUK MENAMPILKAN HALAMAN YANG AKAN DIISI(kolom inputan)
+        public async Task<IActionResult> CreateExtracurricular(Extracurricular datanya)//UNTUK MENAMPILKAN HALAMAN YANG AKAN DIISI(kolom inputan)
         {
 
             if (ModelState.IsValid)
@@ -112,15 +112,19 @@ namespace E_RaporWebApplication.Controllers
             return View(datanya);
         }
         [HttpPost]
-        public async Task<IActionResult> CreateSubject(DbSubjects datanya)//UNTUK MENAMPILKAN HALAMAN YANG AKAN DIISI(kolom inputan)
+        public async Task<IActionResult> CreateSubject(Subjects datanya)//mnerima halaman yg akan diisi(inputan/proses)
         {
-
+            //proses masukan ke database
             if (ModelState.IsValid)
             {
-                _context.Add(datanya);
-                await _context.SaveChangesAsync();
+                if (ModelState.IsValid)
+                {
+                    _context.Add(datanya);
+                    await _context.SaveChangesAsync();
 
-                return RedirectToAction("IndexSubject");
+                    return RedirectToAction("IndexSubject");
+                }
+
             }
 
             return View(datanya);
