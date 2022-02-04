@@ -10,12 +10,12 @@ namespace E_RaporWebApplication.Models
     public class DbAttitudeCompetence
     {
         [Key]
-        public string Nomor { get; set; }
-
+        public int Nomor { get; set; }
+        [Required]
         public string NIS { get; set; }
-
+        [Required]
         public string Nama { get; set; }
-
+        [Required]
         public string Deskripsi_Sikap { get; set; }
     }
 }

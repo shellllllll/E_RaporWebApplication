@@ -1,5 +1,87 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model Extracurricular
 @{
+    Layout = "_DashLayout";
 }
+<div class="content">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title">Menambah Data Siswa</h5>
+                </div>
+                <div class="card-body">
+                    <form asp-controller="Value" asp-action="CreateExtracurricular">
+                        <div class="col-md-3 px-md-1">
+                            <div class="form-group">
+                                <label asp-for="NIS">NIS</label>
+                                <input type="text" class="form-control" asp-for="NIS">
+                            </div>
+                        </div>
+                        <div class="col-md-3 px-md-1">
+                            <div class="form-group">
+                                <label asp-for="Nama">Nama</label>
+                                <input type="text" class="form-control" asp-for="Nama">
+                            </div>
+                        </div>
+                        <div class="col-md-3 px-md-1">
+                            <div class="form-group">
+                                <label asp-for="Ekstrakurikuler">Ekstrakurikuler</label>
+                                <input type="text" class="form-control" asp-for="Ekstrakurikuler">
+                            </div>
+                        </div>
+                        <div class="col-md-3 px-md-1">
+                            <div class="form-group">
+                                <label asp-for="Grade">Grade</label>
+                                <input type="text" class="form-control" asp-for="Grade">
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <input type="submit" class="btn btn-fill btn-primary" value="Simpan" />
+                        </div>
+                        <div class="card-footer">
+                            <input type="button" class="btn btn-fill btn-primary" value="Batal" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-user">
+                <div class="card-body">
+                    <p class="card-text">
+                        <div class="author">
+                            <div class="block block-one"></div>
+                            <div class="block block-two"></div>
+                            <div class="block block-three"></div>
+                            <div class="block block-four"></div>
+                            <a href="javascript:void(0)">
+                                <img class="avatar" src="../assets/img/emilyz.jpg" alt="...">
+                                <h5 class="title">Mike Andrew</h5>
+                            </a>
+                        </div>
+                    <p class="description">
+                        Ceo/Co-Founder
+                    </p>
+                </div>
+
+                <div class="card-description">
+                    Do not be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="button-container">
+                    <button href="javascript:void(0)" class="btn btn-icon btn-round btn-facebook">
+                        <i class="fab fa-facebook"></i>
+                    </button>
+                    <button href="javascript:void(0)" class="btn btn-icon btn-round btn-twitter">
+                        <i class="fab fa-twitter"></i>
+                    </button>
+                    <button href="javascript:void(0)" class="btn btn-icon btn-round btn-google">
+                        <i class="fab fa-google-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

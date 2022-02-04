@@ -30,6 +30,13 @@ namespace E_RaporWebApplication
             {
                 o.UseMySQL(Configuration.GetConnectionString("mysql")); //sesuaikan namanya
             });
+            services.AddAuthentication("CookieAuth")
+                    .AddCookie("CookieAuth", options =>
+                    {
+                        options.LoginPath = "/Admin/LogIn";
+                    }
+                );
+
             services.AddControllersWithViews();
 
         }
@@ -51,14 +58,14 @@ namespace E_RaporWebApplication
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Tampil}/{id?}");
             });
         }
     }

@@ -1,5 +1,79 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<DbSubjects>
 @{
+    Layout = "_DashLayout";
 }
+<h4 class="card-title"> Nilai Mata Pelajaran</h4>
+<a asp-action="CreateSubject">Tambah Data</a>
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table tablesorter " id="">
+            <thead class=" text-primary">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NIS)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nama)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Pendidikan_Agama)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PPKN)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Bahasa_Indonesia)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Matematika)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IPA)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IPS)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PJOK)
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NIS)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nama)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Pendidikan_Agama)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PPKN)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Bahasa_Indonesia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Matematika)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IPA)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IPS)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PJOK)
+                    </td>
+
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

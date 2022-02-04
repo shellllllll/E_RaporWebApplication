@@ -10,16 +10,16 @@ namespace E_RaporWebApplication.Models
     public class DbStudentAttendance
     {
         [Key]
-        public string Nomor { get; set; }
-
+        public int Nomor { get; set; }
+        [Required]
         public string NIS { get; set; }
-
+        [Required]
         public string Nama { get; set; }
-
+        [Required]
         public string Sakit { get; set; }
-
+        [Required]
         public string Izin { get; set; }
-
+        [Required]
         public string Tanpa_Keterangan { get; set; }
     }
 }

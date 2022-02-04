@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_RaporWebApplication.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220203111258_tb_guru")]
-    partial class tb_guru
+    [Migration("20220204114330_tb_admin")]
+    partial class tb_admin
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,19 +20,24 @@ namespace E_RaporWebApplication.Migrations
 
             modelBuilder.Entity("E_RaporWebApplication.Models.DbAchievements", b =>
                 {
-                    b.Property<string>("Nomor")
-                        .HasColumnType("varchar(767)");
+                    b.Property<int>("Nomor")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
                     b.Property<string>("Deskripsi")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Jenis_Prestasi")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NIS")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Nama")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Nomor");
@@ -40,45 +45,99 @@ namespace E_RaporWebApplication.Migrations
                     b.ToTable("Tb_Prestasi");
                 });
 
-            modelBuilder.Entity("E_RaporWebApplication.Models.DbAttitudeCompetence", b =>
+            modelBuilder.Entity("E_RaporWebApplication.Models.DbAdmin", b =>
                 {
-                    b.Property<string>("Nomor")
+                    b.Property<string>("Nama_Pengguna")
                         .HasColumnType("varchar(767)");
 
+                    b.Property<string>("Kata_Sandi")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Nama_Pengguna");
+
+                    b.ToTable("Tb_Admin");
+                });
+
+            modelBuilder.Entity("E_RaporWebApplication.Models.DbAttitudeCompetence", b =>
+                {
+                    b.Property<int>("Nomor")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
                     b.Property<string>("Deskripsi_Sikap")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NIS")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Nama")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Nomor");
 
-                    b.ToTable("DbAttitudeCompetence");
+                    b.ToTable("Tb_Sikap");
                 });
 
             modelBuilder.Entity("E_RaporWebApplication.Models.DbExtracurricular", b =>
                 {
-                    b.Property<string>("Nomor")
-                        .HasColumnType("varchar(767)");
+                    b.Property<int>("Nomor")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
                     b.Property<string>("Ekstrakurikuler")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Grade")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NIS")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Nama")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Nomor");
 
                     b.ToTable("Tb_Ekstrakurikuler");
+                });
+
+            modelBuilder.Entity("E_RaporWebApplication.Models.DbStudentAttendance", b =>
+                {
+                    b.Property<int>("Nomor")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Izin")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NIS")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Nama")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Sakit")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Tanpa_Keterangan")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Nomor");
+
+                    b.ToTable("Tb_Kehadiran");
                 });
 
             modelBuilder.Entity("E_RaporWebApplication.Models.DbStudentData", b =>
@@ -87,15 +146,19 @@ namespace E_RaporWebApplication.Migrations
                         .HasColumnType("varchar(767)");
 
                     b.Property<string>("Alamat")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Jenis_Kelamin")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NISN")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Nama")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("NIS");
@@ -105,34 +168,44 @@ namespace E_RaporWebApplication.Migrations
 
             modelBuilder.Entity("E_RaporWebApplication.Models.DbSubjects", b =>
                 {
-                    b.Property<string>("Nomor")
-                        .HasColumnType("varchar(767)");
+                    b.Property<int>("Nomor")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
                     b.Property<string>("Bahasa_Indonesia")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("IPA")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("IPS")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Matematika")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NIS")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Nama")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("PJOK")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("PPKN")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Pendidikan_Agama")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Nomor");
@@ -142,16 +215,20 @@ namespace E_RaporWebApplication.Migrations
 
             modelBuilder.Entity("E_RaporWebApplication.Models.DbTeacherData", b =>
                 {
-                    b.Property<string>("Nomor")
-                        .HasColumnType("varchar(767)");
+                    b.Property<int>("Nomor")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
                     b.Property<string>("Mata_Pelajaran")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NUPTK")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Nama")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Nomor");

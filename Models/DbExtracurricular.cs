@@ -10,14 +10,14 @@ namespace E_RaporWebApplication.Models
     public class DbExtracurricular
     {
         [Key]
-        public string Nomor { get; set; }
-
+        public int Nomor { get; set; }
+        [Required]
         public string NIS { get; set; }
-
+        [Required]
         public string Nama { get; set; }
-
+        [Required]
         public string Ekstrakurikuler { get; set; }
-
+        [Required]
         public string Grade { get; set; }
     }
 }

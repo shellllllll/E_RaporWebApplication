@@ -10,12 +10,12 @@ namespace E_RaporWebApplication.Models
     public class DbTeacherData
     {
         [Key]
-        public string Nomor { get; set; }
-
+        public int Nomor { get; set; }
+        [Required]
         public string Nama { get; set; }
-
+        [Required]
         public string NUPTK { get; set; }
-
+        [Required]
         public string Mata_Pelajaran { get; set; }
     }
 }

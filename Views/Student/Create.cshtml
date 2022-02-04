@@ -1,26 +1,26 @@
-﻿@model StudentAttendance
+﻿@model StudentData
 @{
     Layout = "_DashLayout";
 }
 <div class="content">
     <div class="row">
         <div class="col-md-8">
-            <form asp-action="CreateAttendance">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="title">Menambah Data Kehadiran Siswa</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="col-md-3 px-md-1">
-                            <div class="form-group">
-                                <label asp-for="Nomor">Nomor</label>
-                                <input type="text" class="form-control" asp-for="Nomor">
-                            </div>
-                        </div>
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title">Menambah Data Siswa</h5>
+                </div>
+                <div class="card-body">
+                    <form asp-controller="Student" asp-action="Create">
                         <div class="col-md-3 px-md-1">
                             <div class="form-group">
                                 <label asp-for="NIS">NIS</label>
                                 <input type="text" class="form-control" asp-for="NIS">
+                            </div>
+                        </div>
+                        <div class="col-md-3 px-md-1">
+                            <div class="form-group">
+                                <label asp-for="NISN">NISN</label>
+                                <input type="text" class="form-control" asp-for="NISN">
                             </div>
                         </div>
                         <div class="col-md-3 px-md-1">
@@ -31,20 +31,14 @@
                         </div>
                         <div class="col-md-3 px-md-1">
                             <div class="form-group">
-                                <label asp-for="Sakit">Sakit</label>
-                                <input type="text" class="form-control" asp-for="Sakit">
+                                <label asp-for="Jenis_Kelamin">Jenis Kelamin</label>
+                                <input type="text" class="form-control" asp-for="Jenis_Kelamin">
                             </div>
                         </div>
                         <div class="col-md-3 px-md-1">
                             <div class="form-group">
-                                <label asp-for="Izin">Izin</label>
-                                <input type="text" class="form-control" asp-for="Izin">
-                            </div>
-                        </div>
-                        <div class="col-md-3 px-md-1">
-                            <div class="form-group">
-                                <label asp-for="Tanpa_Keterangan">Tanpa Keterangan</label>
-                                <input type="text" class="form-control" asp-for="Tanpa_Keterangan">
+                                <label asp-for="Alamat">Alamat</label>
+                                <input type="text" class="form-control" asp-for="Alamat">
                             </div>
                         </div>
 
@@ -54,9 +48,9 @@
                         <div class="card-footer">
                             <input type="button" class="btn btn-fill btn-primary" value="Batal" />
                         </div>
-                    </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
         <div class="col-md-4">
             <div class="card card-user">
@@ -76,7 +70,7 @@
                         Ceo/Co-Founder
                     </p>
                 </div>
-
+                
                 <div class="card-description">
                     Do not be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
                 </div>

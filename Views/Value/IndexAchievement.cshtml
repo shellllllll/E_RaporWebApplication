@@ -1,9 +1,9 @@
-﻿@model IEnumerable<DbExtracurricular>
+﻿@model IEnumerable<DbAchievements>
 @{
     Layout = "_DashLayout";
 }
-<h4 class="card-title"> Tabel Ke-aktifan Ekstrakurikuler</h4>
-<a asp-action="CreateExtracurricular">Tambah Data</a>
+<h4 class="card-title">Tabel Prestasi Siswa</h4>
+<a asp-action="CreateAchievements">Tambah Data</a>
 <div class="card-body">
     <div class="table-responsive">
         <table class="table tablesorter " id="">
@@ -16,10 +16,10 @@
                         @Html.DisplayNameFor(model => model.Nama)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Ekstrakurikuler)
+                        @Html.DisplayNameFor(model => model.Jenis_Prestasi)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Grade)
+                        @Html.DisplayNameFor(model => model.Deskripsi)
                     </th>
                 </tr>
             </thead>
@@ -34,10 +34,10 @@
                             @Html.DisplayFor(modelItem => item.Nama)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Ekstrakurikuler)
+                            @Html.DisplayFor(modelItem => item.Jenis_Prestasi)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Grade)
+                            @Html.DisplayFor(modelItem => item.Deskripsi)
                         </td>
                     </tr>
                 }

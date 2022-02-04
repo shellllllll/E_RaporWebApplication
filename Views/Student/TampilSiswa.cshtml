@@ -1,9 +1,10 @@
-﻿@model IEnumerable<DbStudentAttendance>
+﻿@*@model System.Collections.Generic.IEnumerable<DbStudentData>*@
+@model IEnumerable<DbStudentData>
 @{
     Layout = "_DashLayout";
 }
-<h4 class="card-title"> Tabel Kehadiran Siswa</h4>
-<a asp-action="CreateAttendance">Tambah Data</a>
+<h4 class="card-title"> Table Siswa</h4>
+<a asp-action="Create">Tambah Data</a>
 <div class="card-body">
     <div class="table-responsive">
         <table class="table tablesorter " id="">
@@ -13,16 +14,16 @@
                         @Html.DisplayNameFor(model => model.NIS)
                     </th>
                     <th>
+                        @Html.DisplayNameFor(model => model.NISN)
+                    </th>
+                    <th>
                         @Html.DisplayNameFor(model => model.Nama)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Sakit)
+                        @Html.DisplayNameFor(model => model.Jenis_Kelamin)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Izin)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Tanpa_Keterangan)
+                        @Html.DisplayNameFor(model => model.Alamat)
                     </th>
                 </tr>
             </thead>
@@ -34,17 +35,18 @@
                         @Html.DisplayFor(modelItem => item.NIS)
                     </td>
                     <td>
+                        @Html.DisplayFor(modelItem => item.NISN)
+                    </td>
+                    <td>
                         @Html.DisplayFor(modelItem => item.Nama)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Sakit)
+                        @Html.DisplayFor(modelItem => item.Jenis_Kelamin)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Izin)
+                        @Html.DisplayFor(modelItem => item.Alamat)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Tanpa_Keterangan)
-                    </td>
+
                 </tr>
                 }
             </tbody>

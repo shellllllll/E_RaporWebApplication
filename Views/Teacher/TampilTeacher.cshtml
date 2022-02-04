@@ -1,25 +1,22 @@
-﻿@model IEnumerable<DbExtracurricular>
+﻿@model IEnumerable<DbTeacherData>
 @{
     Layout = "_DashLayout";
 }
-<h4 class="card-title"> Tabel Ke-aktifan Ekstrakurikuler</h4>
-<a asp-action="CreateExtracurricular">Tambah Data</a>
+<h4 class="card-title"> Table Guru</h4>
+<a asp-action="Create">Tambah Data</a>
 <div class="card-body">
     <div class="table-responsive">
         <table class="table tablesorter " id="">
             <thead class=" text-primary">
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.NIS)
-                    </th>
-                    <th>
                         @Html.DisplayNameFor(model => model.Nama)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Ekstrakurikuler)
+                        @Html.DisplayNameFor(model => model.NUPTK)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Grade)
+                        @Html.DisplayNameFor(model => model.Mata_Pelajaran)
                     </th>
                 </tr>
             </thead>
@@ -28,17 +25,15 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.NIS)
-                        </td>
-                        <td>
                             @Html.DisplayFor(modelItem => item.Nama)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Ekstrakurikuler)
+                            @Html.DisplayFor(modelItem => item.NUPTK)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Grade)
+                            @Html.DisplayFor(modelItem => item.Mata_Pelajaran)
                         </td>
+
                     </tr>
                 }
             </tbody>
