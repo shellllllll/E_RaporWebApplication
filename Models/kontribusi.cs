@@ -2,5 +2,6 @@
 {
     public class kontribusi
     {
+        public string nama { get; set; }
     }
 }
